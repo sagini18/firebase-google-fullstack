@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import GoogleButton from "react-google-button";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../pages/AuthContext";
@@ -9,7 +9,7 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { googleSignIn, user } = useAuth();
+  const { googleSignIn } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -24,11 +24,13 @@ const Signup = () => {
     navigate("/Home");
   };
   return (
-    <div className="App d-flex align-items-center flex-column mt-5">
+    <div className="text-light App d-flex align-items-center flex-column mt-5">
       <div className="d-flex flex-column w-25 align-items-center">
         <h4>Register</h4>
         <input
           placeholder="Enter Name"
+          className="form-control"
+          style={{ width: "300px" }}
           type="text"
           autoComplete="off"
           onChange={(e) => setName(e.target.value)}
@@ -36,6 +38,8 @@ const Signup = () => {
         <br></br>
         <input
           placeholder="Enter Email"
+          className="form-control"
+          style={{ width: "300px" }}
           type="text"
           autoComplete="off"
           onChange={(e) => setEmail(e.target.value)}
@@ -43,6 +47,8 @@ const Signup = () => {
         <br></br>
         <input
           placeholder="Enter Password"
+          className="form-control"
+          style={{ width: "300px" }}
           type="password"
           autoComplete="off"
           onChange={(e) => setPassword(e.target.value)}

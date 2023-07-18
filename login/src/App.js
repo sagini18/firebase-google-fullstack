@@ -4,6 +4,7 @@ import "./App.css";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import PhoneAuth from "./pages/PhoneAuth";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/home" element={<Home />}></Route>
           <Route path="/" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="phoneNumberVerification" element={<PhoneAuth />}></Route>
         </Routes>
       </BrowserRouter>
     </AuthContextProvider>

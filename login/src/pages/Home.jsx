@@ -43,10 +43,10 @@ const Home = () => {
   }, [user]);
   return isLoading ? (
     <div className="d-flex align-items-center justify-content-center mt-5 pt-5">
-      <div className="spinner-grow" role="status"></div>
+      <div className="spinner-grow bg-light" role="status"></div>
     </div>
   ) : (
-    <div className="d-flex flex-column align-items-center mt-5 pt-5">
+    <div className="text-light d-flex flex-column align-items-center mt-5 pt-5">
       <h4>Welcome {username ? username : user?.displayName}!</h4>
       <img src={user?.photoURL} className="rounded-circle" />
       <button className="btn btn-primary mt-5" onClick={handleLogout}>

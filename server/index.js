@@ -39,5 +39,15 @@ app.get("/users/:email", async (req, res) => {
     res.json(undefined);
   }
 });
+app.post("/addPhoneNumber", async (req, res) => {
+  const { email, phoneNumber } = req.body;
+  Employee.findOneAndUpdate({ email })
+    .then((user) => {
+      user.phoneNumber = phoneNumber;
+      user.save();
+      res.json(user);
+    })
+    .catch((err) => res.json(err));
+});
 
 app.listen(3001, () => console.log("Server is running!"));

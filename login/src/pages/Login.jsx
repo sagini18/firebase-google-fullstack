@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GoogleButton } from "react-google-button";
 import { useAuth } from "./AuthContext";
-import { auth } from "../firebase";
 
 const Login = () => {
   const API_BASE = "http://localhost:3001";
@@ -17,7 +16,7 @@ const Login = () => {
       .post(API_BASE + "/login", { email, password })
       .then((res) =>
         res.data === "Success"
-          ? navigate("/home", { state: { email } })
+          ? navigate("/phoneNumberVerification", { state: { email } })
           : res.data === "Incorrect Password"
           ? alert(" Incorrect password")
           : navigate("/")
@@ -38,10 +37,12 @@ const Login = () => {
   };
 
   return (
-    <div className="d-flex flex-column w-25 align-items-center">
+    <div className=" text-light d-flex flex-column justify-content-center align-items-center">
       <h4>Login</h4>
       <input
         placeholder="Enter Email"
+        className="form-control"
+        style={{ width: "300px" }}
         type="text"
         autoComplete="off"
         onChange={(e) => setEmail(e.target.value)}
@@ -49,6 +50,8 @@ const Login = () => {
       <br></br>
       <input
         placeholder="Enter Password"
+        className="form-control"
+        style={{ width: "300px" }}
         type="password"
         autoComplete="off"
         onChange={(e) => setPassword(e.target.value)}
